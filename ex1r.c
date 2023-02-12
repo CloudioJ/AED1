@@ -1,25 +1,19 @@
 #include <stdio.h>
-#include <stdbool.h>
 
-bool ePalindrome(int cNum, int revNum) 		
-						                    
+void ePalindrome(int cNum, int revNum) 								                    
 {
-    bool check;
     if (cNum == 0 || cNum - revNum != 0) 	
     {						                
-        printf("\nNão é palindrome\n");
-        check = false;				        
+        printf("\nNao e palindrome");			        
     } else {
-        printf("\nÉ palindrome\n");
-        check = true;				        
-    }
-    return check;				            
+        printf("\nE palindrome");				         
+    }				            
 }
 
 int main()
 {
     int num, cNum, revNum = 0, auxNum;
-    printf("Digite um número: ");
+    printf("Digite um numero: ");
     scanf("%d", &num);
     cNum = num;
     while(num != 0)
