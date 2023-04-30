@@ -19,6 +19,15 @@ Funciona normalmente
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
+Agenda
+--------------------------------------------------------
+Criar uma agenda apenas usando ponteiros e apenas ponteiros.
+
+Funciona parcialmente, não sendo duplamente encadeada e também tendo problemas com a inserção de nomes e a forma de que são escritos,
+por conta do critério de ordem alfabética utilizado.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
 Trabalho Pratico 1: Movimentando uma peça
 --------------------------------------------------------
 Checar se uma peça, depois de uma string de comandos de movimentos ser ser lida, volta pro local de partida.
