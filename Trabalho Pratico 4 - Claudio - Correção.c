@@ -32,38 +32,38 @@ void quicksort(int nums[], int left, int right){
 }
 
 int *maxSubsequence(int *nums, int numsSize, int k, int *returnSize){
-    int i, j, c = 0, compJ = k + 1, *biggestNums = malloc(sizeof(int) *k), *result = malloc(sizeof(int) *k);
+    int i, j, c = 0, aux, *result = malloc(sizeof(int) *k);
     (*returnSize) = k;
 
-    int *sortedNums = malloc(sizeof(int) *numsSize);
+    int *sortedNums = malloc(sizeof(int) * numsSize);
 
     for(i = 0; i < numsSize; i++){
         sortedNums[i] = nums[i];
     }
 
-    quicksort(sortedNums, 0, numsSize);
+    quicksort(sortedNums, 0, numsSize-1);
 
     for(i = 0; i < k; i++){
-        biggestNums[i] = sortedNums[numsSize-1-i];
+        result[i] = sortedNums[numsSize-1-i];
     }
 
     for(i = 0; i < numsSize; i++){
-        for(j = 0; j < k; j++){
-            if(nums[i] == biggestNums[j] && j != compJ){
-                result[c++] = nums[i];
-                compJ = j;
+        for(j = i; j < k; j++){
+            if (nums[i] == result[j]){
+                aux = result[c];
+                result[c++] = result[j];
+                result[j] = aux;
                 break;
             }
         }
     }
 
-    free(biggestNums);
     free(sortedNums);
     return result;
 }
 
 int main(){
-    int *nums, numsSize = 0, k = 0, *returnSize, *result, i;
+    int *nums, numsSize = 10, k = 6, *returnSize, *result, i;
 
     printf("Size of vector: \n"); scanf("%d",&numsSize);
     if (numsSize < 1 || numsSize > 1000){
@@ -83,23 +83,23 @@ int main(){
 
     nums = malloc(sizeof(int) *numsSize);
     returnSize = malloc(sizeof(int));
-    
+
     for(int i = 0; i < numsSize; i++){
         do{
             printf("Value in nums[%d]: \n", i); scanf("%d", &nums[i]);
     } while(nums[i] < -105 || nums[i] > 105);
     }
 
-    printf("\nUnordered array: \n");
+    printf("\nUnordered array:\n");
     for(i = 0; i < numsSize; i++){
-        printf("%d\n", nums[i]);
+        printf("%d ", nums[i]);
     }
 
     result = maxSubsequence(nums, numsSize, k, returnSize);
 
-    printf("\nResult:\n");
+    printf("\n\nResult:\n");
     for(i = 0; i < k; i++){
-        printf("%d\n", result[i]);
+        printf("%d ", result[i]);
     }
 
     free(nums);
