@@ -35,7 +35,7 @@ int *maxSubsequence(int *nums, int numsSize, int k, int *returnSize){
     int i, j, c = 0, aux, *result = malloc(sizeof(int) *k);
     (*returnSize) = k;
 
-    int *sortedNums = malloc(sizeof(int) * numsSize);
+    int *sortedNums = malloc(sizeof(int) *numsSize);
 
     for(i = 0; i < numsSize; i++){
         sortedNums[i] = nums[i];
@@ -63,7 +63,7 @@ int *maxSubsequence(int *nums, int numsSize, int k, int *returnSize){
 }
 
 int main(){
-    int *nums, numsSize = 10, k = 6, *returnSize, *result, i;
+    int *nums, numsSize = 0, k = 0, *returnSize, *result, i;
 
     printf("Size of vector: \n"); scanf("%d",&numsSize);
     if (numsSize < 1 || numsSize > 1000){
