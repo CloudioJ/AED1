@@ -1,4 +1,4 @@
-Exercício: Checagem de Palíndrome
+Exercício: Checagem de Palíndromo
 --------------------------------------------------------
 Boolean que checa se é palindrome funciona de certa forma, não consegui fazer funcionar o print do resultado booleano, apenas pelo print
 
